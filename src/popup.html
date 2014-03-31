@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Productivity Enforcer Extension Popup</title>
+    <style>
+      body {
+        min-width: 320px;
+        overflow-x: hidden;
+        font-family: verdana;
+      }
+
+      .blocklist_section {
+        font-size: 8pt;
+      }
+
+      #blockedlist_listing_select {
+        width: 100%;
+      }
+
+      #blocklist_status_label {
+        padding-right: 2px; 
+        width: 100px;
+        display: inline;
+      }
+      
+      .inactive {
+        color: red;
+      }
+
+      .active {
+        color: green;
+      }
+
+      .scrollable{
+         overflow: auto;
+         width: 100%; /* adjust this width depending to amount of text to display */
+         height: 70px; /* adjust height depending on number of options to display */
+         border: 1px silver solid;
+       }
+       .scrollable select{
+         border: none;
+       }
+
+    </style>
+
+  </head>
+  <body>
+
+     <div id="blocklist_status" class="blocklist_section">
+      <h3>Status</h3>
+      
+      <div id="blocklist_status_label" class="inactive">Inactive</div><button id="blocklist_status_button"></button>
+
+     </div>
+     <div id="blocklist_listing" class="blocklist_section">
+      <h3>Blocked Terms</h3>
+      <p>
+        The following list contains terms that are blocked. If any of the following terms appears in the browser's URL/search bar, the corresponding tab will be closed or blocked from opening. 
+      </p>
+      <div class="scrollable">
+      <select multiple="muliple" size="5" id="blockedlist_listing_select">
+      </select>
+      </div>
+      <button id="blocklist_listing_button">Remove Selected</button>
+    </div>
+    
+     <div id="blocklist_add" class="blocklist_section">
+      <h3>Add New Term</h3>
+      <p>
+        Specify a term that, if it appears in any form in the browser's URL/search bar, will cause the tab to close.
+      </p>
+      <input type="text" id="blocklist_add_input"></input>
+      <button id="blocklist_add_button">Add</button>
+    </div>
+
+    
+
+
+  </body>
+   <script src="popup.js"></script>
+</html>
+
